@@ -1,0 +1,56 @@
+.project-container {
+  display: flex;
+  width: 50%;
+  min-width: 300px;
+  border: solid 2px black;
+  margin-bottom: 10px;
+}
+
+.project-image-container {
+  display: flex;
+  min-width: 240px;
+  min-height: 135px;
+  width: 50%;
+  position: relative;
+  /* border: solid 2px blue; */
+}
+
+.project-image {
+  width: 100%;
+}
+
+.project-title-section {
+  display: flex;
+  justify-content: center;
+}
+
+.project-title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.project-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  padding-left: 1%;
+}
+
+.project-description-section {
+  margin-top: 1px;
+}
+
+.project-description {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.project-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
+  margin-bottom: 1px;
+}
+
+.project-button {
+}

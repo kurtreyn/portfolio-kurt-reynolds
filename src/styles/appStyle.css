@@ -1,0 +1,9 @@
+.app-container {
+  display: flex;
+  /* background-color: blue; */
+}
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+}
