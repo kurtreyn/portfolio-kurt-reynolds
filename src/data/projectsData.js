@@ -2,9 +2,9 @@ export const projectsData = [
   {
     id: 1,
     title: 'Burn After Reading - Front End',
-    code_link: 'https://github.com/kurtreyn/knowNostalgia',
-    page_link: 'https://knownostalgia.netlify.app/index.html',
-    image: require('../assets/images/burn-after-reading.png'),
+    code_link: 'https://github.com/kurtreyn/burn-after-reading-frontend',
+    page_link: 'https://burn-after-reading.netlify.app',
+    image: require('../assets/images/burn-after-reading-frontend-960x540.png'),
     description:
       'Created using React and React Bootstrap. This is a front-end part of the app. The app allows users to create a new message and post it to the server. When the message is clicked, a unique URL opens up, and once the user clicks to return to the home page, the message automatically deletes from the server',
   },
@@ -13,7 +13,7 @@ export const projectsData = [
     title: 'Burn After Reading - Back End',
     code_link: 'https://github.com/kurtreyn/burn-after-reading-server',
     page_link: 'https://burn-after-reading.netlify.app',
-    image: require('../assets/images/burn-server.png'),
+    image: require('../assets/images/burn-after-reading-backend-960x540.png'),
     description:
       'Created using Node.js and Express. This is a back-end part of the app. The app allows users to create a new message which the server saves to an online MongoDB database which allows GET, POST, and DELETE requests.',
   },
@@ -31,7 +31,7 @@ export const projectsData = [
     title: 'iGram',
     code_link: 'https://github.com/kurtreyn/igram',
     page_link: 'https://expo.dev/@kurtreyn/igram',
-    image: require('../assets/images/iGram.png'),
+    image: require('../assets/images/iGram-960x540.png'),
     description:
       "Developed using React Native, Expo and Firebase. This app is an Instagram clone which has fully functioning image posting, taking and uploading photos, registration, authentication, and ability to change the user's profile picture",
   },
@@ -40,7 +40,7 @@ export const projectsData = [
     title: 'Calculator App',
     code_link: 'https://github.com/kurtreyn/calculatorapp',
     page_link: 'https://kurtreyn.github.io/calculatorapp',
-    image: require('../assets/images/calcApp-960x540.jpg'),
+    image: require('../assets/images/calcApp-960x540.png'),
     description: 'This app was built with vanilla JavaScript, HTML & CSS',
   },
   {
@@ -48,7 +48,7 @@ export const projectsData = [
     title: 'i.Dea Photography',
     code_link: 'https://github.com/kurtreyn/photographysite',
     page_link: 'https://kurtreyn.github.io/photographysite/index.html',
-    image: require('../assets/images/iDea-thumbnail-960x540.jpg'),
+    image: require('../assets/images/iDea-960x540.png'),
     description:
       'A site made for a ficticious photography studio. This is the first site I made using Bootstrap. One of the highlights of this site is a custom made lightbox on the gallery page, which is controlled with jQuery',
   },
@@ -75,7 +75,7 @@ export const projectsData = [
     title: 'Know(Nostalgia)',
     code_link: 'https://github.com/kurtreyn/knowNostalgia-react',
     page_link: 'https://knownostalgia-react.netlify.app',
-    image: require('../assets/images/react-knownostalgia-960x540.png'),
+    image: require('../assets/images/knownostalgia-960x540.png'),
     description:
       'Created as a coding bootcamp project. The site was built using React,Bootstrap, and SCSS. One highlight of the site is that it utilizes an API to access a movie database to allow users to search for movies. I have limited the search results to only display movies that were released between 1990 - 2009, as those are the decades the site is dedicated to.',
   },
@@ -84,7 +84,7 @@ export const projectsData = [
     title: 'Storyteller Studios',
     code_link: 'https://github.com/kurtreyn/storyteller',
     page_link: 'https://storytellerstudios.netlify.app',
-    image: require('../assets/images/storyteller-thumbnail-960x540.jpg'),
+    image: require('../assets/images/storyteller-960x540.png'),
     description:
       'This is the first site I made when I started to learn coding. Made with HTML and CSS. The site is for my small film production group, Storyteller Studios',
   },

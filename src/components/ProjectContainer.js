@@ -1,5 +1,4 @@
 import React from 'react';
-import storytellerImage from '../assets/images/storyteller-thumbnail-960x540.jpg';
 import '../styles/projectContainerStyle.css';
 
 export default function ProjectContainer({
@@ -10,10 +9,19 @@ export default function ProjectContainer({
   projectImage,
   description,
 }) {
+  const handleNavigate = (sourceLink) => {
+    window.open(sourceLink);
+  };
+
   return (
     <div className="project-container" id={id}>
       <div className="project-image-container reflection">
         <img src={`${projectImage}`} alt={title} className="project-image" />
+        <img
+          src={`${projectImage}`}
+          alt={title}
+          className="project-image-reflection"
+        />
       </div>
       <div className="project-info-container">
         <div className="project-title-section">
@@ -22,9 +30,13 @@ export default function ProjectContainer({
         <div className="project-description-section">
           <p className="project-description">{description}</p>
         </div>
-        <div className="project-buttons-container">
-          <button className="project-button page-button">View Project</button>
-          <button className="project-button code-button">View Code</button>
+        <div className="project-links-container">
+          <a className="project-link page-link" href={pageLink}>
+            View Project
+          </a>
+          <a className="project-link code-link" href={codeLink}>
+            View Code
+          </a>
         </div>
       </div>
     </div>

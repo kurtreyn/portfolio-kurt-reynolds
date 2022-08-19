@@ -2,8 +2,8 @@
   {
     "id": 1,
     "title": "Burn After Reading - Front End",
-    "code_link": "https://github.com/kurtreyn/knowNostalgia",
-    "page_link": "https://knownostalgia.netlify.app/index.html",
+    "code_link": "https://github.com/kurtreyn/burn-after-reading-frontend",
+    "page_link": "https://burn-after-reading.netlify.app",
     "image": "",
     "description": "Created using React and React Bootstrap. This is a front-end part of the app. The app allows users to create a new message and post it to the server. When the message is clicked, a unique URL opens up, and once the user clicks to return to the home page, the message automatically deletes from the server"
   },

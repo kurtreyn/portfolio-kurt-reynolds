@@ -1,9 +1,18 @@
+body {
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+}
+
 .app-container {
   display: flex;
+
   /* background-color: blue; */
 }
 
 .projects-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  /* width: 50%; */
 }
