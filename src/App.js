@@ -1,28 +1,15 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setLoading } from './redux/actions';
-import ProjectContainer from './components/ProjectContainer';
-import { projectsData } from './data/projectsData';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLoading } from './redux/actions';
+import Main from './components/Main';
 import './styles/appStyle.css';
 
 function App() {
   return (
-    <div className="app-container">
-      <div className="projects-section">
-        {projectsData.map((project) => {
-          return (
-            <ProjectContainer
-              key={project.id}
-              projectImage={project.image}
-              title={project.title}
-              codeLink={project.code_link}
-              pageLink={project.page_link}
-              description={project.description}
-            />
-          );
-        })}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,45 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 100%;
+}
+
+.home-header-section {
+  display: flex;
+  width: 100%;
+}
+
+.home-header {
+}
+
+.home-projects-section {
+  display: flex;
+  width: 100%;
+  /* border: solid 2px black; */
+}
+
+.home-left-projects-section {
+  display: flex;
+  width: 50%;
+}
+
+.home-right-projects-section {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  /* background-color: aqua; */
+}
+
+.projects-icon-container {
+  width: 50%;
+}
+
+.projects-icon {
+  width: 100%;
+}
+
+.projects-icon:hover {
+  transform: scale(1.1);
+}

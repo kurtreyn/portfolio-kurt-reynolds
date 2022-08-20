@@ -77,7 +77,7 @@ export const projectsData = [
     page_link: 'https://knownostalgia-react.netlify.app',
     image: require('../assets/images/knownostalgia-960x540.png'),
     description:
-      'Created as a coding bootcamp project. The site was built using React,Bootstrap, and SCSS. One highlight of the site is that it utilizes an API to access a movie database to allow users to search for movies. I have limited the search results to only display movies that were released between 1990 - 2009, as those are the decades the site is dedicated to.',
+      'Created as a coding bootcamp project. Built with React,Bootstrap, and SCSS. It utilizes an API to access a movie database to allow users to search for movies. I have limited the search results to only display movies that were released between 1990 - 2009, as those are the decades the site is dedicated to.',
   },
   {
     id: 10,
