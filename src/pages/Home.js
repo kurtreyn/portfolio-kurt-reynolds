@@ -29,15 +29,19 @@ export default function Home() {
           )}
         </div>
         <div className="home-right-projects-section">
-          <div className="projects-icon-container" onClick={handleShowProjects}>
-            {!showProjects && (
+          {!showProjects && (
+            <div
+              className="projects-icon-container"
+              onClick={handleShowProjects}
+            >
               <img
                 src={projectsIcon}
                 alt="projects icon"
                 className="projects-icon"
               />
-            )}
-          </div>
+              <span className="projects-icon-subtext">View Projects</span>
+            </div>
+          )}
         </div>
         {showProjects && (
           <ProjectsContainer
