@@ -1,9 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import AuthRoute from '../routes/AuthRoute';
+import ProjectSettings from '../pages/ProjectSettings';
+import Login from '../pages/Login';
 import Home from '../pages/Home';
 import '../styles/mainStyle.css';
 
-export default function Main() {
+export default function Main({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="main-container">
       <Routes>
@@ -11,17 +14,18 @@ export default function Main() {
         <Route
           exact
           path="/login"
-          //   element={<Login currentUser={currentUser} />}
+          element={
+            <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          }
         />
         <Route
           exact
-          path="/signup"
-          //   element={<Signup currentUser={currentUser} />}
-        />
-        <Route
-          exact
-          path="/profile"
-          //   element={<Profile currentUser={currentUser} />}
+          path="/project_settings"
+          element={
+            <AuthRoute isLoggedIn={isLoggedIn}>
+              <ProjectSettings />
+            </AuthRoute>
+          }
         />
       </Routes>
     </div>
