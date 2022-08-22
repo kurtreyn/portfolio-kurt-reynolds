@@ -19,13 +19,99 @@ export default function Home() {
         <div className="home-left-projects-section">
           {!showProjects && (
             <div className="home-content">
-              <span className="home-text">
-                Welcome to my portfolio. I have a pasion for creativity and for
-                continuously learning. Developing software is one way I do this.
-                Being able to create something from start to finish is a
-                rewarding experience. As well, I love to continue to learn new
-                technologies and continuously imporove my skills.
-              </span>
+              <div className="home-text-wrapper">
+                <span className="home-text">
+                  Welcome to my portfolio. I have a pasion for creativity and
+                  for continuously learning. Developing software is one way I do
+                  this. Being able to create something from start to finish is a
+                  rewarding experience. As well, I love to continue to learn new
+                  technologies and continuously imporove my skills.
+                </span>
+              </div>
+              <div className="home-icons-wrapper-outer">
+                <span className="technology-text">
+                  Currently proficient in the following technologies:
+                </span>
+                <div className="home-icons-wrapper-inner-level-one">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+                </div>
+                <div className="home-icons-wrapper-inner-level-two">
+                  <span className="technology-text">
+                    Currently learning the following technologies:
+                  </span>
+                </div>
+                <div className="home-icons-wrapper-inner-level-three">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original-wordmark.svg"
+                    alt="icon"
+                    className="home-icon"
+                  />
+                </div>
+              </div>
             </div>
           )}
         </div>
