@@ -10,7 +10,7 @@ export default function ProjectsContainer({ showProjects, setShowProjects }) {
   };
   return (
     <div className="projects-container">
-      <header className="projects-container-header">
+      <header className="projects-container-header content">
         <div
           className="projects-container-close-button-wrapper"
           onClick={handleCloseProjects}
@@ -18,12 +18,12 @@ export default function ProjectsContainer({ showProjects, setShowProjects }) {
           <img
             src={closeIcon}
             alt="close icon"
-            className="projects-close-icon"
+            className="projects-close-icon content"
           />
         </div>
       </header>
 
-      <div className="projects-container-body">
+      <div className="projects-container-body content">
         {projectsData.map((project) => {
           return (
             <Project

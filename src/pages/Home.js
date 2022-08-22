@@ -20,10 +20,11 @@ export default function Home() {
           {!showProjects && (
             <div className="home-content">
               <span className="home-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-                architecto a officia, repellat quia asperiores totam possimus
-                quae. Vitae ex incidunt itaque. Commodi, rerum ratione. Magnam
-                fuga cupiditate doloribus delectus.
+                Welcome to my portfolio. I have a pasion for creativity and for
+                continuously learning. Developing software is one way I do this.
+                Being able to create something from start to finish is a
+                rewarding experience. As well, I love to continue to learn new
+                technologies and continuously imporove my skills.
               </span>
             </div>
           )}
