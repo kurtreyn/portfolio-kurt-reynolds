@@ -10,7 +10,13 @@ export default function Main({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="main-container">
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          }
+        />
         <Route
           exact
           path="/login"
