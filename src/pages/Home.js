@@ -60,7 +60,7 @@ export default function Home({ isLoggedIn, setIsLoggedIn }) {
               <div className="left-bottom">
                 <span className="left-bottom-text text-color">
                   My name is Kurt Reynolds, and I am a full stack software
-                  engineer with a focus on the front-end and mobile.
+                  engineer with a focus on front-end and mobile.
                   <br />I have a passion for creating and learning and have used
                   that to develop numerous projects, including mobile apps,
                   e-commerce, back-end servers, and more.
