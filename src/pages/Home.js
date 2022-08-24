@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// import NavBar from '../components/NavBar';
-// import Footer from '../components/Footer';
 import ProjectsContainer from '../components/ProjectsContainer';
 import projectsIcon from '../assets/icons/icon-web-development.png';
 import logo from '../assets/images/logo.png';

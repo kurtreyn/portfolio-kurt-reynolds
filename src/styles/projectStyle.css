@@ -50,13 +50,13 @@
 
 .project-image-container > :last-child {
   margin-top: 17px;
-  transform: rotatex(299deg) translatey(-57px) skew(201deg) translatex(8px);
+  transform: rotatex(293deg) translatey(-64px) skew(185deg) translatex(4px);
   filter: blur(4px) brightness(1.5);
 }
 
 .project-image {
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); */
 }
 
 .project-image-reflection {
@@ -186,13 +186,13 @@
 
   .project-image-container > :last-child {
     margin-top: 17px;
-    transform: rotatex(305deg) translatey(-45px) skew(208deg) translatex(16px);
+    transform: rotatex(293deg) translatey(-64px) skew(185deg) translatex(4px);
     filter: blur(4px) brightness(1.5);
   }
 
   .project-image {
     width: 100%;
-    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+    /* clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); */
   }
 
   .project-image-reflection {
