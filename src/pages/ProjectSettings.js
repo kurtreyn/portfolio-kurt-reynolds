@@ -41,7 +41,7 @@ export default function ProjectSettings() {
     setLoading(true);
     try {
       const response = await fetch(
-        'https://44.203.171.173:8080/posts',
+        'https://18.207.154.85:8080/posts',
         requestOptions
       );
       if (response.status === 200) {

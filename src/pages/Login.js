@@ -25,7 +25,7 @@ export default function Login() {
     };
     setLoading(true);
     try {
-      await fetch('https://44.203.171.173:8080/users/login', requestOptions)
+      await fetch('https://18.207.154.85:8080/users/login', requestOptions)
         .then((response) => response.json())
         .then((response) => {
           if (response.success) {
