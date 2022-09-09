@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import ProjectsContainer from '../components/ProjectsContainer';
 import projectsIcon from '../assets/icons/icon-web-development.png';
 import logo from '../assets/images/logo.png';
 import githubIcon from '../assets/icons/icon-github.png';
 import linkedinIcon from '../assets/icons/icon-linkedin.png';
 import '../styles/homeStyle.css';
+import axios from 'axios';
 
 export default function Home() {
   const [showProjects, setShowProjects] = useState(false);
@@ -12,6 +14,19 @@ export default function Home() {
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
+
+  // THIS WORKS ON LOCALHOST
+  // const fetchPosts = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch('http://44.203.171.173:8080/posts');
+  //     let data = await response.json();
+  //     setPosts(data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const fetchPosts = async () => {
     setLoading(true);
@@ -28,6 +43,8 @@ export default function Home() {
   useEffect(() => {
     fetchPosts();
   }, [posts.length]);
+
+  console.log('posts on HOME', posts);
 
   const handleShowProjects = () => {
     setShowProjects(!showProjects);

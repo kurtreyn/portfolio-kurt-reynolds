@@ -9,6 +9,9 @@ export default function ProjectsContainer({
   showProjects,
   setShowProjects,
 }) {
+  if (posts) {
+    console.log('we have posts!');
+  }
   const handleCloseProjects = () => {
     setShowProjects(!showProjects);
   };
@@ -33,32 +36,34 @@ export default function ProjectsContainer({
       </header>
 
       <div className="projects-container-body content">
-        {/* {sortedPosts.map((post, index) => {
-          return (
-            <Project
-              key={index}
-              id={post.id}
-              projectImage={post.image}
-              title={post.title}
-              codeLink={post.codeLink}
-              pageLink={post.pageLink}
-              description={post.description}
-            />
-          );
-        })} */}
-        {projectsData.map((post, index) => {
-          return (
-            <Project
-              key={index}
-              id={post.id}
-              projectImage={post.image}
-              title={post.title}
-              codeLink={post.codeLink}
-              pageLink={post.pageLink}
-              description={post.description}
-            />
-          );
-        })}
+        {posts &&
+          sortedPosts.map((post, index) => {
+            return (
+              <Project
+                key={index}
+                id={post.id}
+                projectImage={post.image}
+                title={post.title}
+                codeLink={post.codeLink}
+                pageLink={post.pageLink}
+                description={post.description}
+              />
+            );
+          })}
+        {!posts &&
+          projectsData.map((post, index) => {
+            return (
+              <Project
+                key={index}
+                id={post.id}
+                projectImage={post.image}
+                title={post.title}
+                codeLink={post.codeLink}
+                pageLink={post.pageLink}
+                description={post.description}
+              />
+            );
+          })}
       </div>
     </div>
   );
