@@ -36,7 +36,7 @@ export default function ProjectsContainer({
       </header>
 
       <div className="projects-container-body content">
-        {posts &&
+        {posts.length > 0 &&
           sortedPosts.map((post, index) => {
             return (
               <Project
@@ -50,7 +50,7 @@ export default function ProjectsContainer({
               />
             );
           })}
-        {!posts &&
+        {posts.length === 0 &&
           projectsData.map((post, index) => {
             return (
               <Project

@@ -28,10 +28,23 @@ export default function Home() {
   //   }
   // };
 
+  // SHOULD BE HTTPS
+  // const fetchPosts = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch('https://18.207.154.85/posts');
+  //     let data = await response.json();
+  //     setPosts(data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://18.207.154.85/posts');
+      const response = await fetch('http://18.207.154.85/posts');
       let data = await response.json();
       setPosts(data);
       setLoading(false);
