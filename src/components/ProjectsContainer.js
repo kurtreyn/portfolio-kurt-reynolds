@@ -1,5 +1,6 @@
 import React from 'react';
 import Project from './Project';
+import { projectsData } from '../data/projectsData';
 import closeIcon from '../assets/icons/close-icon.svg';
 import '../styles/projectsContainerStyle.css';
 
@@ -32,7 +33,20 @@ export default function ProjectsContainer({
       </header>
 
       <div className="projects-container-body content">
-        {sortedPosts.map((post, index) => {
+        {/* {sortedPosts.map((post, index) => {
+          return (
+            <Project
+              key={index}
+              id={post.id}
+              projectImage={post.image}
+              title={post.title}
+              codeLink={post.codeLink}
+              pageLink={post.pageLink}
+              description={post.description}
+            />
+          );
+        })} */}
+        {projectsData.map((post, index) => {
           return (
             <Project
               key={index}
