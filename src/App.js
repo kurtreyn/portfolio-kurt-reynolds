@@ -4,10 +4,26 @@ import Main from './components/Main';
 import './styles/appStyle.css';
 
 function App() {
+  const [token, setToken] = useState(null);
+  const [credentials, setCredentials] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const getAuth = () => {
+    setToken(localStorage.getItem('token'));
+    setCredentials(localStorage.getItem('credentials'));
+  };
+
+  useEffect(() => {
+    getAuth();
+  }, []);
+
+  useEffect(() => {
+    setIsLoggedIn(true);
+  }, [token]);
+
   return (
     <BrowserRouter>
-      <Main isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <Main token={token} credentials={credentials} isLoggedIn={isLoggedIn} />
     </BrowserRouter>
   );
 }

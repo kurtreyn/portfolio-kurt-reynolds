@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 100px;
 }
 
 .project-settings-inner-container {
@@ -27,8 +28,9 @@
   align-items: center;
 }
 
-/* .project-settings-header-text {
-  } */
+.project-settings-header-text {
+  color: #fff;
+}
 
 .project-settings-body {
   position: relative;
@@ -37,6 +39,7 @@
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  height: 340px;
   /* border: solid 1px red; */
 }
 
@@ -52,7 +55,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  background: transparent;
+  background: #fff;
   width: 300px;
 }
 

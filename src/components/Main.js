@@ -6,30 +6,21 @@ import Login from '../pages/Login';
 import Home from '../pages/Home';
 import '../styles/mainStyle.css';
 
-export default function Main({ isLoggedIn, setIsLoggedIn }) {
+export default function Main({ credentials, isLoggedIn }) {
   return (
     <div className="main-container">
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          }
-        />
-        <Route
-          exact
-          path="/login"
-          element={
-            <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          }
-        />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/login" element={<Login />} />
         <Route
           exact
           path="/project_settings"
           element={
             <AuthRoute isLoggedIn={isLoggedIn}>
-              <ProjectSettings />
+              <ProjectSettings
+                isLoggedIn={isLoggedIn}
+                credentials={credentials}
+              />
             </AuthRoute>
           }
         />

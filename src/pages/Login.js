@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/loginStyle.css';
 
-export default function Login({ isLoggedIn, setIsLoggedIn }) {
+export default function Login() {
   const [loading, setLoading] = useState(false);
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -25,24 +25,22 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
     };
     setLoading(true);
     try {
-      await fetch('44.203.171.173:8080/users/login', requestOptions)
+      await fetch('http://44.203.171.173:8080/users/login', requestOptions)
         .then((response) => response.json())
         .then((response) => {
           if (response.success) {
             localStorage.setItem('token', response.token);
-            localStorage.setItem('credentials', JSON.stringify(credentials));
-            console.log(response);
-            // console.log(credentials);
+            // localStorage.setItem('credentials', JSON.stringify(credentials));
+            localStorage.setItem('credentials', credentials);
+            localStorage.setItem('isLoggedIn', true);
           }
         });
-      // setIsAuth(true);
     } catch (errors) {
       console.log(errors);
       alert(errors.message);
     }
     navigate('/');
   }
-  // console.log(username, password);
 
   return (
     <div className="login-container">
@@ -65,7 +63,11 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </form>
-        <button className="login-button" onClick={handleLogin}>
+        <button
+          className="login-button"
+          disabled={loading}
+          onClick={handleLogin}
+        >
           <span className="login-button-text">Login</span>
         </button>
       </div>

@@ -4,6 +4,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 200px;
+  /* outline: 1px solid red; */
 }
 
 .login-header {
@@ -12,8 +14,9 @@
   align-items: center;
 }
 
-/* .login-header-text {
-} */
+.login-header-text {
+  color: #fff;
+}
 
 .login-body {
   display: flex;
@@ -34,7 +37,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  background: transparent;
+  background: #fff;
 }
 
 .login-button {
