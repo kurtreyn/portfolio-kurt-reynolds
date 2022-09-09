@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ipAddress } from '../shared/sharedData';
 import '../styles/projectSettingsStyle.css';
 
 export default function ProjectSettings() {
@@ -41,7 +42,7 @@ export default function ProjectSettings() {
     setLoading(true);
     try {
       const response = await fetch(
-        'https://18.207.154.85/posts',
+        `https://${ipAddress}/posts`,
         requestOptions
       );
       if (response.status === 200) {

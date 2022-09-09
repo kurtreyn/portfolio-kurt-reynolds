@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ipAddress } from '../shared/sharedData';
 import '../styles/loginStyle.css';
 
 export default function Login() {
@@ -25,7 +26,7 @@ export default function Login() {
     };
     setLoading(true);
     try {
-      await fetch('https://18.207.154.85:80/users/login', requestOptions)
+      await fetch(`https://${ipAddress}/users/login`, requestOptions)
         .then((response) => response.json())
         .then((response) => {
           if (response.success) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { ipAddress } from '../shared/sharedData';
 import ProjectsContainer from '../components/ProjectsContainer';
 import projectsIcon from '../assets/icons/icon-web-development.png';
 import logo from '../assets/images/logo.png';
@@ -14,12 +14,13 @@ export default function Home() {
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [postsHttp, setPostsHttp] = useState([]);
 
   // THIS WORKS ON LOCALHOST
   // const fetchPosts = async () => {
   //   setLoading(true);
   //   try {
-  //     const response = await fetch('http://18.207.154.85:8080/posts');
+  //     const response = await fetch(`http://${ipAddress}:8080/posts`);
   //     let data = await response.json();
   //     setPosts(data);
   //     setLoading(false);
@@ -29,22 +30,10 @@ export default function Home() {
   // };
 
   // SHOULD BE HTTPS
-  // const fetchPosts = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const response = await fetch('https://18.207.154.85/posts');
-  //     let data = await response.json();
-  //     setPosts(data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://18.207.154.85/posts');
+      const response = await fetch(`https://${ipAddress}/posts`);
       let data = await response.json();
       setPosts(data);
       setLoading(false);
@@ -53,11 +42,25 @@ export default function Home() {
     }
   };
 
+  const fetchPostsHttp = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`http://${ipAddress}/posts`);
+      let data = await response.json();
+      setPostsHttp(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
+    fetchPostsHttp();
   }, [posts.length]);
 
   console.log('posts on HOME', posts);
+  console.log('postsHttp on HOME', postsHttp);
 
   const handleShowProjects = () => {
     setShowProjects(!showProjects);
