@@ -9,7 +9,7 @@ export default function ProjectsContainer({
   showProjects,
   setShowProjects,
 }) {
-  if (posts) {
+  if (posts.length > 0) {
     console.log('we have posts!');
   }
   const handleCloseProjects = () => {

@@ -31,7 +31,7 @@ export default function Home() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://18.207.154.85:8080/posts');
+      const response = await fetch('https://18.207.154.85/posts');
       let data = await response.json();
       setPosts(data);
       setLoading(false);
