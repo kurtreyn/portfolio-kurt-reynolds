@@ -6,7 +6,6 @@ import logo from '../assets/images/logo.png';
 import githubIcon from '../assets/icons/icon-github.png';
 import linkedinIcon from '../assets/icons/icon-linkedin.png';
 import '../styles/homeStyle.css';
-import axios from 'axios';
 
 export default function Home() {
   const [showProjects, setShowProjects] = useState(false);
@@ -14,22 +13,7 @@ export default function Home() {
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [postsHttp, setPostsHttp] = useState([]);
 
-  // THIS WORKS ON LOCALHOST
-  // const fetchPosts = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const response = await fetch(`http://${ipAddress}:8080/posts`);
-  //     let data = await response.json();
-  //     setPosts(data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // SHOULD BE HTTPS
   const fetchPosts = async () => {
     setLoading(true);
     try {
@@ -42,25 +26,11 @@ export default function Home() {
     }
   };
 
-  const fetchPostsHttp = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`http://${ipAddress}/posts`);
-      let data = await response.json();
-      setPostsHttp(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     fetchPosts();
-    fetchPostsHttp();
   }, [posts.length]);
 
   console.log('posts on HOME', posts);
-  console.log('postsHttp on HOME', postsHttp);
 
   const handleShowProjects = () => {
     setShowProjects(!showProjects);
