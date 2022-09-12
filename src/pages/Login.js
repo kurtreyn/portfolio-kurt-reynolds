@@ -31,7 +31,6 @@ export default function Login() {
         .then((response) => {
           if (response.success) {
             localStorage.setItem('token', response.token);
-            // localStorage.setItem('credentials', JSON.stringify(credentials));
             localStorage.setItem('credentials', credentials);
             localStorage.setItem('isLoggedIn', true);
           }

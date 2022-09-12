@@ -8,7 +8,7 @@ import githubIcon from '../assets/icons/icon-github.png';
 import linkedinIcon from '../assets/icons/icon-linkedin.png';
 import '../styles/homeStyle.css';
 
-export default function Home() {
+export default function Home({ isLoggedIn }) {
   const [showProjects, setShowProjects] = useState(false);
   const [showSideBar, setShoSideBar] = useState(false);
 
@@ -117,7 +117,7 @@ export default function Home() {
               className="sidebar-block"
               onClick={() => setShoSideBar(!showSideBar)}
             ></div>
-            {showSideBar && <SideBar />}
+            {showSideBar && <SideBar isLoggedIn={isLoggedIn} />}
           </div>
         </div>
       )}

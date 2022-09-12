@@ -6,7 +6,7 @@ import './styles/appStyle.css';
 function App() {
   const [token, setToken] = useState(null);
   const [credentials, setCredentials] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const getAuth = () => {
     setToken(localStorage.getItem('token'));
@@ -20,6 +20,8 @@ function App() {
   useEffect(() => {
     setIsLoggedIn(true);
   }, [token]);
+
+  console.log('isLoggedIn', isLoggedIn);
 
   return (
     <BrowserRouter>
