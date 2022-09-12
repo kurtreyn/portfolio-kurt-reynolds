@@ -10,7 +10,7 @@ export default function Project({
   description,
 }) {
   return (
-    <div className="project-wrapper" id={id} key={id}>
+    <div className="project-wrapper" id={id}>
       <div className="project-header">
         <h2 className="project-title">{title}</h2>
       </div>

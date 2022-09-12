@@ -30,7 +30,7 @@ export default function Home() {
     fetchPosts();
   }, [posts.length]);
 
-  console.log('posts on HOME', posts);
+  // console.log('posts on HOME', posts);
 
   const handleShowProjects = () => {
     setShowProjects(!showProjects);

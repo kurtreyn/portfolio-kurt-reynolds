@@ -11,7 +11,7 @@ export default function Main({ credentials, isLoggedIn }) {
     <div className="main-container">
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="users/login" element={<Login />} />
         <Route
           exact
           path="/project_settings"

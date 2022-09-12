@@ -43,6 +43,8 @@ export default function Login() {
     navigate('/');
   }
 
+  console.log('token', localStorage.getItem('token'));
+
   return (
     <div className="login-container">
       <div className="login-header">

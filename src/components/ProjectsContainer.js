@@ -10,7 +10,7 @@ export default function ProjectsContainer({
   setShowProjects,
 }) {
   if (posts.length > 0) {
-    console.log('we have posts!');
+    // console.log('we have posts!');
   }
   const handleCloseProjects = () => {
     setShowProjects(!showProjects);
@@ -44,8 +44,8 @@ export default function ProjectsContainer({
                 id={post.id}
                 projectImage={post.image}
                 title={post.title}
-                codeLink={post.codeLink}
-                pageLink={post.pageLink}
+                codeLink={post.codeUrl}
+                pageLink={post.pageUrl}
                 description={post.description}
               />
             );
@@ -58,8 +58,8 @@ export default function ProjectsContainer({
                 id={post.id}
                 projectImage={post.image}
                 title={post.title}
-                codeLink={post.codeLink}
-                pageLink={post.pageLink}
+                codeLink={post.codeUrl}
+                pageLink={post.pageUrl}
                 description={post.description}
               />
             );
