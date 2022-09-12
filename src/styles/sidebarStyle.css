@@ -1,0 +1,26 @@
+:root {
+  --black: #222831;
+  --dark-gray: #393e46;
+  --orange: #fd7014;
+  --white: #eeeeee;
+}
+
+.sidebar-container {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+  outline: solid 1px white;
+}
+
+.sidebar-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* outline: solid 1px green; */
+}
+
+.sidebar-text {
+  color: var(--white);
+  text-decoration: none;
+}

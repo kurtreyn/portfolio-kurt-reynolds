@@ -150,6 +150,22 @@
   height: 50px;
 }
 
+.sidebar-section {
+  display: flex;
+  margin-top: 80px;
+}
+
+.sidebar-block {
+  width: 10px;
+  height: 30px;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.sidebar-block:hover {
+  transform: scale(1.1);
+}
+
 /* ---------- MOBILE SECTION ----------- */
 @media only screen and (max-width: 600px) {
   .home-container {

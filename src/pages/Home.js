@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SideBar from '../components/SideBar';
 import { ipAddress } from '../shared/sharedData';
 import ProjectsContainer from '../components/ProjectsContainer';
 import projectsIcon from '../assets/icons/icon-web-development.png';
@@ -9,6 +10,7 @@ import '../styles/homeStyle.css';
 
 export default function Home() {
   const [showProjects, setShowProjects] = useState(false);
+  const [showSideBar, setShoSideBar] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
@@ -108,6 +110,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="sidebar-section">
+            <div
+              className="sidebar-block"
+              onClick={() => setShoSideBar(!showSideBar)}
+            ></div>
+            {showSideBar && <SideBar />}
           </div>
         </div>
       )}
