@@ -110,18 +110,19 @@ export default class FirebaseClass {
     return downloadURLs;
   }
 
-  async makePost(givenTitle, givenDescription, givenImages, whereToUse) {
+  async makePost(projectName, pageUrl, codeurl, description, image) {
     const postId = uuidv4();
     const postRef = doc(db, 'posts', postId);
     await setDoc(postRef, {
       id: postId,
       images: [],
-      title: givenTitle,
-      desc: givenDescription,
-      use_at: whereToUse,
+      project_name: projectName,
+      page_url: pageUrl,
+      code_url: codeurl,
+      description: description,
       createdAt: serverTimestamp(),
     });
-    const downloadURLs = await this.uploadImages(givenImages, postId);
+    const downloadURLs = await this.uploadImages(image, postId);
     await updateDoc(postRef, { images: downloadURLs });
   }
 
