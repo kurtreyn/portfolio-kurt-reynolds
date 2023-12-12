@@ -21,7 +21,7 @@ function App() {
     setIsLoggedIn(true);
   }, [token]);
 
-  console.log('isLoggedIn', isLoggedIn);
+  // console.log('isLoggedIn', isLoggedIn);
 
   return (
     <BrowserRouter>

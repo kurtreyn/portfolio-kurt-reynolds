@@ -2,13 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/sidebarStyle.css';
 
-export default function SideBar({ isLoggedIn }) {
+export default function SideBar({ isLoggedIn, showSideBar }) {
   return (
-    <div className="sidebar-container">
+    <div
+      className={
+        showSideBar
+          ? 'transition-animate sidebar-container'
+          : 'sidebar-container'
+      }
+    >
       <div className="sidebar-content-wrapper">
-        {/* <Link to="/algorithms" className="sidebar-text">
-          Algorithms
-        </Link> */}
+        <Link to="/demos" className="sidebar-text">
+          Demos
+        </Link>
+        <Link to="/algorithms" className="sidebar-text">
+          Algorithm Simulator
+        </Link>
         <Link to="/users/login" className="sidebar-text">
           Login
         </Link>

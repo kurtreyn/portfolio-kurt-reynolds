@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import SideBar from '../components/SideBar';
-import { ipAddress } from '../shared/sharedData';
+import { protocol, url } from '../shared/sharedData';
 import ProjectsContainer from '../components/ProjectsContainer';
 import projectsIcon from '../assets/icons/icon-web-development.png';
 import logo from '../assets/images/logo.png';
 import githubIcon from '../assets/icons/icon-github.png';
 import linkedinIcon from '../assets/icons/icon-linkedin.png';
+import chevronUp from '../assets/icons/chevron-up.svg';
+import chevronDown from '../assets/icons/chevron-down.svg';
 import '../styles/homeStyle.css';
 
 export default function Home({ isLoggedIn }) {
@@ -19,7 +21,7 @@ export default function Home({ isLoggedIn }) {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`https://${ipAddress}/posts`);
+      const response = await fetch(`${protocol}://${url}/posts`);
       let data = await response.json();
       setPosts(data);
       setLoading(false);
@@ -37,6 +39,7 @@ export default function Home({ isLoggedIn }) {
   const handleShowProjects = () => {
     setShowProjects(!showProjects);
   };
+
   return (
     <div className="home-container">
       {!showProjects && (
@@ -52,8 +55,7 @@ export default function Home({ isLoggedIn }) {
                 <a
                   href="https://www.linkedin.com/in/kurt-reynolds-447ab632/"
                   target={'_blank'}
-                  rel="noreferrer"
-                >
+                  rel="noreferrer">
                   <img
                     src={linkedinIcon}
                     alt="linkedin icon"
@@ -63,8 +65,7 @@ export default function Home({ isLoggedIn }) {
                 <a
                   href="https://github.com/kurtreyn?tab=repositories"
                   target={'_blank'}
-                  rel="noreferrer"
-                >
+                  rel="noreferrer">
                   <img
                     src={githubIcon}
                     alt="github icon"
@@ -83,10 +84,9 @@ export default function Home({ isLoggedIn }) {
               <div className="left-bottom">
                 <span className="left-bottom-text text-color">
                   My name is Kurt Reynolds, and I am a full stack software
-                  engineer with a focus on front-end and mobile.
+                  engineer.
                   <br />I have a passion for creating and learning and have used
-                  that to develop numerous projects, including mobile apps,
-                  e-commerce, back-end servers, and more.
+                  that to develop numerous professional and personal projects.
                 </span>
               </div>
             </div>
@@ -97,8 +97,7 @@ export default function Home({ isLoggedIn }) {
               <div className="right-bottom">
                 <div
                   className="home-projects-icon-wrapper"
-                  onClick={handleShowProjects}
-                >
+                  onClick={handleShowProjects}>
                   <img
                     src={projectsIcon}
                     alt="projects icon"
@@ -115,8 +114,13 @@ export default function Home({ isLoggedIn }) {
           <div className="sidebar-section">
             <div
               className="sidebar-block"
-              onClick={() => setShoSideBar(!showSideBar)}
-            ></div>
+              onClick={() => setShoSideBar(!showSideBar)}>
+              <img
+                src={!showSideBar ? chevronDown : chevronUp}
+                alt="down arrow"
+                className="toggle-icon"
+              />
+            </div>
             {showSideBar && <SideBar isLoggedIn={isLoggedIn} />}
           </div>
         </div>

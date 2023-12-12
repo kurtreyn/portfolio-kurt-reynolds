@@ -5,6 +5,7 @@ import ProjectSettings from '../pages/ProjectSettings';
 import Login from '../pages/Login';
 import Home from '../pages/Home';
 import Algorithms from '../pages/Algorithms';
+import Demos from '../pages/Demos';
 import '../styles/mainStyle.css';
 
 export default function Main({ credentials, isLoggedIn }) {
@@ -12,6 +13,7 @@ export default function Main({ credentials, isLoggedIn }) {
     <div className="main-container">
       <Routes>
         <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+        <Route exact path="demos" element={<Demos />} />
         <Route exact path="users/login" element={<Login />} />
         <Route exact path="/algorithms" element={<Algorithms />} />
         <Route

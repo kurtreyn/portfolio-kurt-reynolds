@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ipAddress } from '../shared/sharedData';
+import { protocol, url } from '../shared/sharedData';
 import '../styles/projectSettingsStyle.css';
 
 export default function ProjectSettings() {
@@ -42,7 +42,7 @@ export default function ProjectSettings() {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://${ipAddress}/posts`,
+        `${protocol}://${url}/posts`,
         requestOptions
       );
       if (response.status === 200) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ipAddress } from '../shared/sharedData';
+import { url, protocol } from '../shared/sharedData';
 import '../styles/loginStyle.css';
 
 export default function Login() {
@@ -26,7 +26,7 @@ export default function Login() {
     };
     setLoading(true);
     try {
-      await fetch(`https://${ipAddress}/users/login`, requestOptions)
+      await fetch(`${protocol}://${url}/users/login`, requestOptions)
         .then((response) => response.json())
         .then((response) => {
           if (response.success) {
@@ -42,7 +42,7 @@ export default function Login() {
     navigate('/');
   }
 
-  console.log('token', localStorage.getItem('token'));
+  // console.log('token', localStorage.getItem('token'));
 
   return (
     <div className="login-container">
