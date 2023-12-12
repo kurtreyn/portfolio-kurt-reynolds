@@ -1,48 +1,59 @@
 import React, { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { url, protocol } from '../shared/sharedData';
+import { auth } from '../firebase';
 import '../styles/loginStyle.css';
 
 export default function Login() {
-  const [loading, setLoading] = useState(false);
-  const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const navigate = useNavigate();
 
-  async function handleLogin() {
-    const theHeaders = new Headers();
-    theHeaders.append('Content-Type', 'application/json');
-
-    const credentials = JSON.stringify({
-      username: username,
-      password: password,
-    });
-
-    const requestOptions = {
-      method: 'POST',
-      headers: theHeaders,
-      body: credentials,
-      redirect: 'follow',
-    };
-    setLoading(true);
-    try {
-      await fetch(`${protocol}://${url}/users/login`, requestOptions)
-        .then((response) => response.json())
-        .then((response) => {
-          if (response.success) {
-            localStorage.setItem('token', response.token);
-            localStorage.setItem('credentials', credentials);
-            localStorage.setItem('isLoggedIn', true);
-          }
-        });
-    } catch (errors) {
-      console.log(errors);
-      alert(errors.message);
+  function checkForErrors() {
+    if (!email || email === '') {
+      setHasError(true);
+      alert('Must provide a valid email address');
+      resetForm();
+    } else if (!email.includes('@')) {
+      setHasError(true);
+      alert('Email address must contain @ symbol');
+      resetForm();
+    } else if (!password || password === '') {
+      setHasError(true);
+      alert('Must provide a password');
+      resetForm();
     }
-    navigate('/');
   }
 
-  // console.log('token', localStorage.getItem('token'));
+  function signIn(email, password) {
+    checkForErrors();
+    if (!hasError) {
+      return signInWithEmailAndPassword(auth, email, password);
+    } else {
+      resetForm();
+    }
+  }
+
+  function resetForm() {
+    setEmail('');
+    setPassword('');
+    setHasError(false);
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      await signIn(email, password)
+        .then(setLoading(false))
+        .then(() => navigate('/'));
+    } catch (error) {
+      console.log(error.message);
+      alert('Error', error);
+    }
+  }
 
   return (
     <div className="login-container">
@@ -54,9 +65,9 @@ export default function Login() {
         <form action="" className="login-form">
           <input
             type="text"
-            placeholder="user name"
+            placeholder="email"
             className="login-input"
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
@@ -68,8 +79,7 @@ export default function Login() {
         <button
           className="login-button"
           disabled={loading}
-          onClick={handleLogin}
-        >
+          onClick={handleLogin}>
           <span className="login-button-text">Login</span>
         </button>
       </div>

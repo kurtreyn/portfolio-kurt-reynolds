@@ -9,8 +9,7 @@ export default function SideBar({ isLoggedIn, showSideBar }) {
         showSideBar
           ? 'transition-animate sidebar-container'
           : 'sidebar-container'
-      }
-    >
+      }>
       <div className="sidebar-content-wrapper">
         <Link to="/demos" className="sidebar-text">
           Demos
@@ -18,11 +17,11 @@ export default function SideBar({ isLoggedIn, showSideBar }) {
         <Link to="/algorithms" className="sidebar-text">
           Algorithm Simulator
         </Link>
-        <Link to="/users/login" className="sidebar-text">
+        <Link to="/login" className="sidebar-text">
           Login
         </Link>
         {isLoggedIn ? (
-          <Link to="/project_settings" className="sidebar-text">
+          <Link to="/admin" className="sidebar-text">
             Project Settings
           </Link>
         ) : null}
