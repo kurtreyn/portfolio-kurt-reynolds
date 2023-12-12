@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { protocol, url } from '../shared/sharedData';
+import FirebaseClass from '../classes/FirebaseClass';
+import GlobalClass from '../classes/GlobalClass';
 import '../styles/projectSettingsStyle.css';
 
 export default function ProjectSettings() {
@@ -9,6 +12,9 @@ export default function ProjectSettings() {
   const [codeUrl, setCodeUrl] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
+  const dispatch = useDispatch();
+  const fb = new FirebaseClass();
+  const gc = new GlobalClass();
 
   const resetFields = () => {
     setProjectName('');
@@ -19,43 +25,7 @@ export default function ProjectSettings() {
     setLoading(false);
   };
 
-  const handlePost = async () => {
-    const bearer = 'Bearer ' + localStorage.getItem('token');
-    const theHeaders = new Headers();
-    theHeaders.append('Authorization', bearer);
-    theHeaders.append('Content-Type', 'application/json');
-
-    const raw = JSON.stringify({
-      title: projectName,
-      pageUrl: pageUrl,
-      codeUrl: codeUrl,
-      description: description,
-      image: image,
-    });
-
-    const requestOptions = {
-      method: 'POST',
-      headers: theHeaders,
-      body: raw,
-      redirect: 'follow',
-    };
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `${protocol}://${url}/posts`,
-        requestOptions
-      );
-      if (response.status === 200) {
-        alert('Post created successfully');
-        resetFields();
-      } else {
-        alert(response.statusText);
-      }
-    } catch (errors) {
-      console.log(errors);
-      alert(errors.message);
-    }
-  };
+  const handlePost = async () => {};
 
   return (
     <div className="project-settings-container">
@@ -97,21 +67,12 @@ export default function ProjectSettings() {
               className="project-settings-input"
               onChange={(e) => setImage(e.target.value)}
             />
-
-            {/* <input
-              type="file"
-              id="file"
-              placeholder="upload image"
-              className="project-settings-file-selector"
-            />
-            <label htmlFor="file">Select Image</label> */}
           </form>
           <div className="project-settings-button-wrapper">
             <button
               className="project-settings-button"
               disabled={loading}
-              onClick={handlePost}
-            >
+              onClick={handlePost}>
               <span className="project-settings-button-text">Submit</span>
             </button>
           </div>
