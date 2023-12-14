@@ -66,7 +66,7 @@ export default function ProjectSettings() {
               placeholder="project description"
               className="project-settings-input"
             />
-            <label for="image-input" className="project-settings-label">
+            <label htmlFor="image-input" className="project-settings-label">
               Select a project image:
             </label>
             <input
