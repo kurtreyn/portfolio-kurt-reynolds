@@ -11,6 +11,12 @@
   border-radius: 25px;
   top: 88px;
   right: 82px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.projects-container::-webkit-scrollbar {
+  display: none;
 }
 
 .projects-container-header {
@@ -40,6 +46,12 @@
   width: 100%;
   height: 100%;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.projects-container-body::-webkit-scrollbar {
+  display: none;
 }
 /* ---------- ANIMATION----------- */
 .projects-container {

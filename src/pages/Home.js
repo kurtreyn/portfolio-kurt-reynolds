@@ -1,42 +1,66 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPosts, setRefreshPosts } from '../redux/controls';
 import SideBar from '../components/SideBar';
-import { ipAddress } from '../shared/sharedData';
 import ProjectsContainer from '../components/ProjectsContainer';
 import projectsIcon from '../assets/icons/icon-web-development.png';
 import logo from '../assets/images/logo.png';
 import githubIcon from '../assets/icons/icon-github.png';
 import linkedinIcon from '../assets/icons/icon-linkedin.png';
+import chevronUp from '../assets/icons/chevron-up.svg';
+import chevronDown from '../assets/icons/chevron-down.svg';
+import FirebaseClass from '../classes/FirebaseClass';
+import GlobalClass from '../classes/GlobalClass';
 import '../styles/homeStyle.css';
 
 export default function Home({ isLoggedIn }) {
+  const { posts, refreshPosts, loading } = useSelector(
+    (state) => state.controls
+  );
   const [showProjects, setShowProjects] = useState(false);
-  const [showSideBar, setShoSideBar] = useState(false);
+  const [showSideBar, setShowSideBar] = useState(false);
+  const [sortedPosts, setSortedPosts] = useState(null);
+  const dispatch = useDispatch();
+  const fb = new FirebaseClass();
+  const gc = new GlobalClass();
+  const postLen = new GlobalClass();
 
-  // eslint-disable-next-line no-unused-vars
-  const [loading, setLoading] = useState(false);
-  const [posts, setPosts] = useState([]);
+  if (posts) {
+    postLen.setLength(posts.length);
+  }
 
-  const fetchPosts = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`https://${ipAddress}/posts`);
-      let data = await response.json();
-      setPosts(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  async function fetchNewPosts() {
+    const newPosts = await fb.fetchPosts();
+    dispatch(setPosts(newPosts));
+    dispatch(setRefreshPosts(false));
+  }
 
+  // for initial component load
   useEffect(() => {
-    fetchPosts();
-  }, [posts.length]);
+    if (posts) {
+      setSortedPosts(gc.sortData(posts));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postLen.getLength()]);
 
-  // console.log('posts on HOME', posts);
+  //  for when new posts are added
+  useEffect(() => {
+    if (refreshPosts) {
+      fetchNewPosts()
+        .then(() => {
+          setSortedPosts(gc.sortData(posts));
+        })
+        .catch((err) => {
+          console.log('error refreshing posts: ', err);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refreshPosts]);
 
   const handleShowProjects = () => {
     setShowProjects(!showProjects);
   };
+
   return (
     <div className="home-container">
       {!showProjects && (
@@ -52,8 +76,7 @@ export default function Home({ isLoggedIn }) {
                 <a
                   href="https://www.linkedin.com/in/kurt-reynolds-447ab632/"
                   target={'_blank'}
-                  rel="noreferrer"
-                >
+                  rel="noreferrer">
                   <img
                     src={linkedinIcon}
                     alt="linkedin icon"
@@ -63,8 +86,7 @@ export default function Home({ isLoggedIn }) {
                 <a
                   href="https://github.com/kurtreyn?tab=repositories"
                   target={'_blank'}
-                  rel="noreferrer"
-                >
+                  rel="noreferrer">
                   <img
                     src={githubIcon}
                     alt="github icon"
@@ -83,10 +105,9 @@ export default function Home({ isLoggedIn }) {
               <div className="left-bottom">
                 <span className="left-bottom-text text-color">
                   My name is Kurt Reynolds, and I am a full stack software
-                  engineer with a focus on front-end and mobile.
+                  engineer.
                   <br />I have a passion for creating and learning and have used
-                  that to develop numerous projects, including mobile apps,
-                  e-commerce, back-end servers, and more.
+                  that to develop numerous professional and personal projects.
                 </span>
               </div>
             </div>
@@ -97,8 +118,7 @@ export default function Home({ isLoggedIn }) {
               <div className="right-bottom">
                 <div
                   className="home-projects-icon-wrapper"
-                  onClick={handleShowProjects}
-                >
+                  onClick={handleShowProjects}>
                   <img
                     src={projectsIcon}
                     alt="projects icon"
@@ -115,8 +135,13 @@ export default function Home({ isLoggedIn }) {
           <div className="sidebar-section">
             <div
               className="sidebar-block"
-              onClick={() => setShoSideBar(!showSideBar)}
-            ></div>
+              onClick={() => setShowSideBar(!showSideBar)}>
+              <img
+                src={!showSideBar ? chevronDown : chevronUp}
+                alt="down arrow"
+                className="toggle-icon"
+              />
+            </div>
             {showSideBar && <SideBar isLoggedIn={isLoggedIn} />}
           </div>
         </div>
@@ -126,7 +151,7 @@ export default function Home({ isLoggedIn }) {
         <ProjectsContainer
           showProjects={showProjects}
           setShowProjects={setShowProjects}
-          posts={posts}
+          posts={sortedPosts}
         />
       )}
     </div>

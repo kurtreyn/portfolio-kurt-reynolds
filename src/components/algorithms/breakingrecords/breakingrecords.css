@@ -1,0 +1,67 @@
+:root {
+  --black: #222831;
+  --dark-gray: #393e46;
+  --orange: #fd7014;
+  --white: #eeeeee;
+}
+
+.function-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.problem-description {
+  width: 100%;
+}
+
+.function-code-and-controls-section {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.function-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.function-left-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.function-right-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.function-body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.function-control-buttons {
+  display: flex;
+  margin-left: 50px;
+  width: 350px;
+}
+
+.variable-text {
+  color: var(--orange);
+}
+
+.variable-monitor {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.monitor-text-wrapper {
+  display: flex;
+}
