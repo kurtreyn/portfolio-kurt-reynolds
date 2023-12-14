@@ -54,7 +54,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refreshPosts]);
 
-  console.log('current users email: ', current_user.email);
+  // console.log('current users email: ', current_user.email);
 
   return (
     <BrowserRouter>
