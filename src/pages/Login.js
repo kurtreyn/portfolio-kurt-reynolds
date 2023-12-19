@@ -48,6 +48,7 @@ export default function Login() {
       setLoading(true);
       await signIn(email, password)
         .then(setLoading(false))
+        .then(alert('Login successful'))
         .then(() => navigate('/'));
     } catch (error) {
       console.log(error.message);
