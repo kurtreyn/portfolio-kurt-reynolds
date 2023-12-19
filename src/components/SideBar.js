@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import '../styles/sidebarStyle.css';
 
-export default function SideBar({ isLoggedIn, showSideBar }) {
+export default function SideBar({ showSideBar }) {
+  const { isAuth } = useSelector((state) => state.user);
   return (
     <div
       className={
@@ -20,9 +22,9 @@ export default function SideBar({ isLoggedIn, showSideBar }) {
         <Link to="/login" className="sidebar-text">
           Login
         </Link>
-        {isLoggedIn ? (
+        {isAuth ? (
           <Link to="/admin" className="sidebar-text">
-            Project Settings
+            Edit Projects
           </Link>
         ) : null}
       </div>
